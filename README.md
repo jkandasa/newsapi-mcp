@@ -24,7 +24,7 @@ make build-all
 Check the version:
 
 ```bash
-./newsapi-mcp -version
+./newsapi-mcp --version
 ```
 
 Set your API key via the environment variable:
@@ -42,24 +42,24 @@ export NEWSAPI_KEY=your_api_key_here
 **HTTP/SSE:**
 
 ```bash
-./newsapi-mcp -transport http -addr :8080
+./newsapi-mcp --transport http --addr :8080
 ```
 
 **HTTPS** (provide your own certificate and key):
 
 ```bash
-./newsapi-mcp -transport http -addr :8443 -cert /path/to/cert.pem -key /path/to/key.pem
+./newsapi-mcp --transport http --addr :8443 --cert /path/to/cert.pem --key /path/to/key.pem
 ```
 
 ### Flags
 
 | Flag         | Default | Description                                            |
 | ------------ | ------- | ------------------------------------------------------ |
-| `-version`   | —       | Print version and exit                                 |
-| `-transport` | `stdio` | Transport type: `stdio` or `http`                      |
-| `-addr`      | `:8080` | Listen address (HTTP only)                             |
-| `-cert`      | —       | TLS certificate file (enables HTTPS; requires `-key`)  |
-| `-key`       | —       | TLS private key file (enables HTTPS; requires `-cert`) |
+| `--version`   | —       | Print version and exit                                  |
+| `--transport` | `stdio` | Transport type: `stdio` or `http`                       |
+| `--addr`      | `:8080` | Listen address (HTTP only)                              |
+| `--cert`      | —       | TLS certificate file (enables HTTPS; requires `--key`)  |
+| `--key`       | —       | TLS private key file (enables HTTPS; requires `--cert`) |
 
 ## Tools
 
