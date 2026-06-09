@@ -7,13 +7,19 @@ import (
 	"net/http"
 	"os"
 	"os/signal"
+	"runtime"
 	"syscall"
 
 	"github.com/mark3labs/mcp-go/server"
 	"go.uber.org/zap"
 )
 
-var version = "devel" // overridden at build time via -ldflags "-X main.version=..."
+// overridden at build time via -ldflags
+var (
+	version   = "devel"
+	gitCommit = "unknown"
+	buildDate = "unknown"
+)
 
 func main() {
 	var (
@@ -26,7 +32,10 @@ func main() {
 	flag.Parse()
 
 	if *showVersion {
-		fmt.Println("newsapi-mcp", version)
+		fmt.Printf("newsapi-mcp %s\n", version)
+		fmt.Printf("  git commit : %s\n", gitCommit)
+		fmt.Printf("  build date : %s\n", buildDate)
+		fmt.Printf("  go version : %s\n", runtime.Version())
 		os.Exit(0)
 	}
 
